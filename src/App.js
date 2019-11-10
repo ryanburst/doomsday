@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import moment from "moment";
+import Clock from "./components/clock";
+import Controls from "./components/controls";
+import "./sass/main.scss";
+import cx from "classnames";
+import styles from "./App.module.scss";
+
+let defaultExpiration = moment(new Date()).toDate();
+defaultExpiration.setSeconds(defaultExpiration.getSeconds() + 3600); // +1 hour
 
 function App() {
+  const [isExpired, setIsExpired] = useState(false);
+  const [expiryTimestamp, setExpiryTimestamp] = useState(defaultExpiration);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div
+      className={cx(styles.App, {
+        ["animation--flash"]: isExpired
+      })}
+    >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Doomsday Clock</title>
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans|Orbitron&amp;display=swap"
+          rel="stylesheet"
+        />
         >
-          Learn React
-        </a>
-      </header>
+      </Helmet>
+      <Clock expiryTimestamp={expiryTimestamp} setIsExpired={setIsExpired} />
+      <Controls setExpiryTimestamp={setExpiryTimestamp} />
     </div>
   );
 }
