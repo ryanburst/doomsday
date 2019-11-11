@@ -21,8 +21,9 @@ const Clock = ({ expiryTimestamp, setIsExpired }) => {
   let restartRef = useRef(restart);
 
   useEffect(() => {
+    setIsExpired(false);
     restartRef.current(expiryTimestamp);
-  }, [expiryTimestamp, restartRef]);
+  }, [expiryTimestamp, setIsExpired, restartRef]);
 
   return (
     <>
