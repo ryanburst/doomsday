@@ -13,10 +13,13 @@ defaultExpiration.setSeconds(defaultExpiration.getSeconds() + 3600); // +1 hour
 function App() {
   const [isExpired, setIsExpired] = useState(false);
   const [expiryTimestamp, setExpiryTimestamp] = useState(defaultExpiration);
+
+  console.log("render", expiryTimestamp);
+
   return (
     <div
       className={cx(styles.App, {
-        ["animation--flash"]: isExpired
+        "animation--flash": isExpired
       })}
     >
       <Helmet>
