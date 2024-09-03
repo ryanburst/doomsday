@@ -23,10 +23,9 @@ function App() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Doomsday Clock</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono|Martian+Mono:wght@100..800&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=M+PLUS+1+Code:wght@100..700&family=PT+Mono&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Rubik+Mono+One&family=VT323&display=swap" rel="stylesheet"/>
       </Helmet>
 
       <Clock expiryTimestamp={expiryTimestamp} setIsExpired={setIsExpired} />

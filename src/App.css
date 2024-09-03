@@ -7,10 +7,8 @@
 }
 
 .animation--flash {
-  animation-name: flash;
-  animation-duration: 300ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  background-color: red;
+  color: white;
 }
 
 @keyframes flash {
